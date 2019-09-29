@@ -1,4 +1,5 @@
 import logging
+import os
 
 import telegram
 from telegram.ext import Updater, CommandHandler, Filters, MessageHandler
@@ -56,7 +57,14 @@ def pidr(update, context):
 
 
 def main():
-    updater = Updater(token=c.TOKEN, use_context=True, request_kwargs={'read_timeout': 30, 'connect_timeout': 7})
+    PORT = os.environ.get('PORT')
+    NAME = 'blooming-wave-39288'
+    updater = Updater(
+        token=c.TOKEN,
+        use_context=True,
+        request_kwargs={'read_timeout': 30, 'connect_timeout': 7},
+
+    )
     dispatcher = updater.dispatcher
 
     # Handlers
@@ -72,7 +80,11 @@ def main():
     dispatcher.add_handler(pidr_handler)
     dispatcher.add_handler(metropolis_handler)
 
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=c.TOKEN)
+    updater.bot.setWebhook("https://{}.herokuapp.com/{}".format(NAME, c.TOKEN))
+    updater.idle()
 
     updater.idle()
 
