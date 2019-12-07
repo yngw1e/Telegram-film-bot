@@ -56,7 +56,7 @@ def main():
     # Handlers
     start_handler = CommandHandler('start', start)
     echo_handler = MessageHandler(Filters.text, echo)
-    films_handler = CommandHandler('films', films)
+    films_handler = CommandHandler('kapitoliy', films)
     pidr_handler = CommandHandler('pidr', pidr)
     metropolis_handler = CommandHandler('metropolis', metropolis)
 
