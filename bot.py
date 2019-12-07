@@ -25,21 +25,17 @@ def echo(update, context):
 
 
 def films(update, context):
-    films_list = kudago_api.get_recent_films()
-    for film in films_list:
-        context.bot.send_photo(chat_id=update.message.chat_id,
-                               caption=f'<b>{film.title}</b>\n{film.description}',
-                               photo=film.image_url,
+    context.bot.send_photo(chat_id=update.message.chat_id,
+                               caption="<b>Глубокая глотка</b>\nГлавная героиня (Линда Лавлейс) не в состоянии получить сексуальное удовлетворение. Специалист (Гарри Римс), к которому она обращается со своими проблемами, выясняет причину, которая состоит в том, что её клитор находится глубоко в горле. Обрадованная поставленным диагнозом, Линда осваивает специфическую технику орального секса, которую в фильме именуют «глубокой глоткой», и «оттачивает» её на различных партнёрах, пока не находит себе наиболее подходящего с нужным размером члена.",
+                               photo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Deep_throat_PD_poster_%28restored%29.png/546px-Deep_throat_PD_poster_%28restored%29.png",
                                parse_mode='HTML')
 
 
 def metropolis(update, context):
-    reply_markup = telegram.InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
     context.bot.send_photo(chat_id=update.message.chat_id,
                                caption="<b>Глубокая глотка</b>\nГлавная героиня (Линда Лавлейс) не в состоянии получить сексуальное удовлетворение. Специалист (Гарри Римс), к которому она обращается со своими проблемами, выясняет причину, которая состоит в том, что её клитор находится глубоко в горле. Обрадованная поставленным диагнозом, Линда осваивает специфическую технику орального секса, которую в фильме именуют «глубокой глоткой», и «оттачивает» её на различных партнёрах, пока не находит себе наиболее подходящего с нужным размером члена.",
                                photo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Deep_throat_PD_poster_%28restored%29.png/546px-Deep_throat_PD_poster_%28restored%29.png",
-                               parse_mode='HTML',
-                               reply_markup=reply_markup)
+                               parse_mode='HTML')
 
 
 def pidr(update, context):
