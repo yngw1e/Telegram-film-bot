@@ -34,18 +34,8 @@ def films(update, context):
 
 
 def metropolis(update, context):
-    films_list = metropolis_api.get_recent_films()
-    for film in films_list:
-        buttons_in_raw = 4
-        session_buttons = [
-            telegram.InlineKeyboardButton(text=session.time,
-                                          url=film.description_href)
-            for session in film.schedule
-        ]
-        inline_keyboard = [session_buttons[i:i + buttons_in_raw] for i in range(0, len(session_buttons), buttons_in_raw)]
-        reply_markup = telegram.InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
-        caption = f'<b>{film.title}</b>\n{film.description}\n\n<b>Сеансы:</b>\n'
-        context.bot.send_photo(chat_id=update.message.chat_id,
+    reply_markup = telegram.InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
+    context.bot.send_photo(chat_id=update.message.chat_id,
                                caption="<b>Глубокая глотка</b>\nГлавная героиня (Линда Лавлейс) не в состоянии получить сексуальное удовлетворение. Специалист (Гарри Римс), к которому она обращается со своими проблемами, выясняет причину, которая состоит в том, что её клитор находится глубоко в горле. Обрадованная поставленным диагнозом, Линда осваивает специфическую технику орального секса, которую в фильме именуют «глубокой глоткой», и «оттачивает» её на различных партнёрах, пока не находит себе наиболее подходящего с нужным размером члена.",
                                photo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Deep_throat_PD_poster_%28restored%29.png/546px-Deep_throat_PD_poster_%28restored%29.png",
                                parse_mode='HTML',
