@@ -44,7 +44,7 @@ def pidr(update, context):
 
 def main():
     PORT = os.environ.get('PORT')
-    NAME = 'blooming-wave-39288'
+    NAME = 'wafflexxx'
     updater = Updater(
         token=c.TOKEN,
         use_context=True,
